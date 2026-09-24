@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "GlanceableHubSysuiConfigOverlay",
+    name: "GlanceableHubSysuiConfigOverlayZumapro",
     product_specific: true,
 }

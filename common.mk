@@ -241,8 +241,10 @@ PRODUCT_PACKAGES += \
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
+# default-permissions.xml for the product partition is provided by vendor/gms on GMS
+# builds (see vendor/gms/product/blobs/product_blobs.mk default_permissions_allowlist).
+
 PRODUCT_COPY_FILES += \
-	device/google/zumapro/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \
 	device/google/zumapro/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
 	frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
 
@@ -352,21 +354,14 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc-service.st
 
 # Overlays
+# NOTE: common Google overlays (GlanceableHub*, GoogleConfig, GooglePermissionControllerSafetyCenter,
+# PixelConfigOverlay2019/2021/Common, PixelConnectivityOverlay2024) are provided by
+# vendor/pixel-style/config/rro_overlays.mk; only device-specific overlays are listed here.
 PRODUCT_PACKAGES += \
     DMServiceOverlayProductZumapro \
     EuiccSupportPixelOverlay \
     FrameworkResOverlayProductZumapro \
     FrameworkResOverlayVendorZumapro \
-    GlanceableHubConfigOverlay \
-    GlanceableHubSettingsConfigOverlay \
-    GlanceableHubSettingsConfigOverlay2022 \
-    GlanceableHubSysuiConfigOverlay \
-    GoogleConfigOverlay \
-    GooglePermissionControllerSafetyCenterOverlay \
-    PixelConfigOverlay2019 \
-    PixelConfigOverlay2021 \
-    PixelConfigOverlayCommon \
-    PixelConnectivityOverlay2024 \
     PixelDisplayServiceOverlayProductZumapro \
     PixelNfcOverlayCommon \
     PixelTetheringOverlay2021 \

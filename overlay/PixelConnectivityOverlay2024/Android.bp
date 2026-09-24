@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "PixelConnectivityOverlay2024",
+    name: "PixelConnectivityOverlay2024Zumapro",
     product_specific: true,
 }
