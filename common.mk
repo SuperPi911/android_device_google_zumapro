@@ -302,8 +302,12 @@ PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
 PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := true
 
 # AiAi Config
+# The allowlist supports com.google.android.as (Android System Intelligence / Now Playing),
+# which is only present on GMS builds.
+ifeq ($(WITH_GMS),true)
 PRODUCT_COPY_FILES += \
     device/google/zumapro/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
+endif
 
 # Android Verified Boot
 PRODUCT_COPY_FILES += \
